@@ -1,2 +1,6 @@
 export * from "./navbar"
 export * from "./card"
+export * from "./input-text"
+export * from "./label-input"
+export * from "./label-title"
+export * from "./button"
