@@ -1,4 +1,4 @@
 export interface ITurboFormInputTextProps {
-  label: string,
+  label?: string,
   className?: string
 }
