@@ -1,8 +1,9 @@
+import type { ChangeEvent } from 'react'
 import { FileUploadInput, FileUploadList } from './components'
 import type { IFileUpload } from './interfaces'
 
-export const FileUpload = ({ value = [], onChange }: IFileUpload) => {
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+export const FileUpload = ({ value = [], onChange, testId }: IFileUpload) => {
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files
     if (!selectedFiles) return
     const newFiles = [...value, ...Array.from(selectedFiles)]
@@ -22,9 +23,16 @@ export const FileUpload = ({ value = [], onChange }: IFileUpload) => {
   }
 
   return (
-    <div className="w-full max-w-md space-y-4 rounded-lg border p-4">
-      <FileUploadInput onChange={handleFileChange} />
-      <FileUploadList files={value} onRemove={removeFile} />
+    <div
+      data-testid={testId}
+      className="w-full max-w-md space-y-4 rounded-lg border p-4"
+    >
+      <FileUploadInput testId={`${testId}-input`} onChange={handleFileChange} />
+      <FileUploadList
+        testId={`${testId}-list`}
+        files={value}
+        onRemove={removeFile}
+      />
     </div>
   )
 }
