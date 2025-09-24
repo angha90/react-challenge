@@ -1,7 +1,7 @@
 {
-  "editor.formatOnSave": false, // disable standalone Prettier formatting
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit" // run eslint --fix on save
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": [
     "javascript",
@@ -9,5 +9,5 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.useFlatConfig": true // <-- needed for ESLint v9 + flat config
+  "eslint.useFlatConfig": true
 }
