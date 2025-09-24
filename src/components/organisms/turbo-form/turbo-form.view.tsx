@@ -1,5 +1,5 @@
 import { Button } from "../../atoms"
-import { TurboFormInputText,  TurboFormDropdown, TurboFormTextArea } from "../../molecules"
+import { TurboFormInputText,  TurboFormDropdown, TurboFormTextArea, TurboFormFileUpload } from "../../molecules"
 import type { ITurboFormProps } from "./interfaces"
 
 export const TurboForm = ({ fields, actions, className, fieldsClassName, actionsClassName }: ITurboFormProps) => {
@@ -17,6 +17,8 @@ export const TurboForm = ({ fields, actions, className, fieldsClassName, actions
             return <TurboFormTextArea key={field.label} label={field.label} className={field.className} rows={field.rows} />
           case "dropdown":
             return <TurboFormDropdown key={field.label} label={field.label} className={field.className} options={field.options} placeholder={field.placeholder} />
+          case "file":
+            return <TurboFormFileUpload key={field.label} label={field.label} className={field.className} />
           default:
             return null
         }
