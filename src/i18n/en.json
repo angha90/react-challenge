@@ -1,0 +1,23 @@
+{
+  "accomodations": {
+    "createForm": {
+      "step": {
+        "accommodation": "Accommodation",
+        "owner": "Owner",
+        "summary": "Summary"
+      },
+      "field": {
+        "name": "Name",
+        "address": "Address",
+        "description": "Description",
+        "type": "Type",
+        "photos": "Photos"
+      },
+      "button": {
+        "back": "Back",
+        "next": "Next",
+        "submit": "Submit"
+      }
+    }
+  }
+}

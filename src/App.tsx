@@ -3,7 +3,7 @@ import { CreateAccommodation } from './features/accommodations/components/pages'
 
 function App() {
   return (
-    <div className="flex h-screen w-screen flex-col bg-[linear-gradient(32deg,#f15f41_75%,#ffbbad_100%)]">
+    <div className="flex h-screen w-screen flex-col">
       <AppHeader />
       <div className="flex-1">
         <CreateAccommodation />

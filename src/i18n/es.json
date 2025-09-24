@@ -1,0 +1,23 @@
+{
+  "accomodations": {
+    "createForm": {
+      "step": {
+        "accommodation": "Alojamiento",
+        "owner": "Propietario",
+        "summary": "Resumen"
+      },
+      "field": {
+        "name": "Nombre",
+        "address": "Dirección",
+        "description": "Descripción",
+        "type": "Tipo",
+        "photos": "Fotos"
+      },
+      "button": {
+        "back": "Atrás",
+        "next": "Siguiente",
+        "submit": "Enviar"
+      }
+    }
+  }
+}
