@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { LabelTitle } from '../../../../../components/atoms'
-import { TurboForm } from '../../../../../components/organisms'
+import {
+  TurboForm,
+  useTurboFormContext
+} from '../../../../../components/organisms'
 
 enum ECreateAccommodationFormSteps {
   ACCOMMODATION = 1,
@@ -9,6 +12,7 @@ enum ECreateAccommodationFormSteps {
 }
 
 export const CreateAccommodationForm = () => {
+  const { values } = useTurboFormContext()
   const [step, setStep] = useState<ECreateAccommodationFormSteps>(
     ECreateAccommodationFormSteps.ACCOMMODATION
   )
@@ -18,10 +22,8 @@ export const CreateAccommodationForm = () => {
   const previousStep = () => setStep(step - 1)
 
   const onSubmit = () => {
-    console.log('submit')
+    console.log('submit', values)
   }
-
-  console.log(previousStep, nextStep, step, onSubmit)
 
   const accommodationFormStepTitle = {
     [ECreateAccommodationFormSteps.ACCOMMODATION]: 'Accommodation',
@@ -33,6 +35,7 @@ export const CreateAccommodationForm = () => {
 
   const fields = [
     {
+      name: 'title',
       hidden: step === ECreateAccommodationFormSteps.SUMMARY,
       template: (
         <div className="mb-8 flex w-full items-center justify-center">
@@ -41,24 +44,28 @@ export const CreateAccommodationForm = () => {
       )
     },
     {
+      name: 'name',
       label: 'Name',
       type: 'text' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
     },
     {
+      name: 'address',
       label: 'Address',
       type: 'text' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
     },
     {
+      name: 'description',
       label: 'Description',
       type: 'textarea' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
     },
     {
+      name: 'type',
       label: 'Type',
       type: 'dropdown' as const,
       options: [
@@ -71,30 +78,35 @@ export const CreateAccommodationForm = () => {
       hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
     },
     {
+      name: 'photos',
       label: 'Photos',
-      type: 'text' as const,
+      type: 'file' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
     },
     {
+      name: 'owner',
       label: 'Owner',
       type: 'text' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.OWNER
     },
     {
+      name: 'ownerEmail',
       label: 'Owner Email',
       type: 'text' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.OWNER
     },
     {
+      name: 'ownerPhone',
       label: 'Owner Phone',
       type: 'text' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.OWNER
     },
     {
+      name: 'summary',
       template: accommodationFormSummary,
       hidden: step !== ECreateAccommodationFormSteps.SUMMARY
     }

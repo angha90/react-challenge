@@ -3,4 +3,5 @@ export interface ITurboFormTextAreaProps {
   rows?: number
   className?: string
   testId?: string
+  name: string
 }

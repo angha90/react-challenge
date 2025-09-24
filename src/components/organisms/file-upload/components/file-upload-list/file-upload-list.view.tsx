@@ -23,7 +23,7 @@ export const FileUploadList = ({
       ) : (
         <p
           data-testid={`${testId}-no-files`}
-          className="text-center text-sm text-gray-500"
+          className="text-center text-sm font-medium text-gray-500"
         >
           No documents uploaded
         </p>

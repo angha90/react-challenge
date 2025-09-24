@@ -25,6 +25,7 @@ export const TurboForm = ({
             case 'text':
               return (
                 <TurboFormInputText
+                  name={field.name}
                   key={field.label}
                   label={field.label}
                   className={field.className}
@@ -33,6 +34,7 @@ export const TurboForm = ({
             case 'textarea':
               return (
                 <TurboFormTextArea
+                  name={field.name}
                   key={field.label}
                   label={field.label}
                   className={field.className}
@@ -42,6 +44,7 @@ export const TurboForm = ({
             case 'dropdown':
               return (
                 <TurboFormDropdown
+                  name={field.name}
                   key={field.label}
                   label={field.label}
                   className={field.className}
@@ -52,6 +55,7 @@ export const TurboForm = ({
             case 'file':
               return (
                 <TurboFormFileUpload
+                  name={field.name}
                   key={field.label}
                   label={field.label}
                   className={field.className}

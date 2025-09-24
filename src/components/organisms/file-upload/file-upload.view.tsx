@@ -25,7 +25,7 @@ export const FileUpload = ({ value = [], onChange, testId }: IFileUpload) => {
   return (
     <div
       data-testid={testId}
-      className="w-full max-w-md space-y-4 rounded-lg border p-4"
+      className="flex w-full flex-col gap-4 rounded-md border border-gray-300 p-4 shadow transition-colors duration-200 hover:border-orange-500 focus:border-orange-500 focus:shadow focus:outline-none"
     >
       <FileUploadInput testId={`${testId}-input`} onChange={handleFileChange} />
       <FileUploadList

@@ -4,4 +4,5 @@ export interface ITurboFormDropdownProps {
   options?: { value: string; label: string }[]
   placeholder?: string
   testId?: string
+  name: string
 }

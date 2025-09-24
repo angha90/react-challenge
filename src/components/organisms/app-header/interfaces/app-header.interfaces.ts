@@ -1,3 +1,3 @@
 export interface IAppHeaderProps {
-  testId: string
+  testId?: string
 }

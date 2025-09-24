@@ -13,7 +13,7 @@ export const FileUploadInput = ({ onChange, testId }: IFileUploadInput) => {
       />
       <div
         data-testid={`${testId}-container`}
-        className="rounded-lg border border-dashed p-6 text-center"
+        className="rounded-lg border border-dashed border-gray-300 p-6 text-center"
       >
         <div
           data-testid={`${testId}-icon`}
@@ -23,7 +23,7 @@ export const FileUploadInput = ({ onChange, testId }: IFileUploadInput) => {
         </div>
         <div
           data-testid={`${testId}-text`}
-          className="mt-1 text-xs text-gray-500"
+          className="mt-1 text-xs font-medium text-gray-500"
         >
           Please use the button below to upload your documents.
         </div>
@@ -31,7 +31,7 @@ export const FileUploadInput = ({ onChange, testId }: IFileUploadInput) => {
           <label
             htmlFor="fileInput"
             data-testid={`${testId}-label`}
-            className="inline-block cursor-pointer rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+            className="inline-block cursor-pointer rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
           >
             Upload files
           </label>
