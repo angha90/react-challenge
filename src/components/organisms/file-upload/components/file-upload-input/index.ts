@@ -1,3 +1,3 @@
-import { FileUploadInput     } from "./file-upload-input.view";
+import { FileUploadInput } from './file-upload-input.view'
 
 export { FileUploadInput }

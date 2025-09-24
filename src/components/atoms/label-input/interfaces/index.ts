@@ -1,3 +1,3 @@
-import type { ILabelInputProps } from "./label-input.interfaces"
+import type { ILabelInputProps } from './label-input.interfaces'
 
-export type { ILabelInputProps } 
+export type { ILabelInputProps }

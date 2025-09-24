@@ -1,1 +1,1 @@
-export * from "./label-input.view"
+export * from './label-input.view'

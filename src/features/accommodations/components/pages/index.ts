@@ -1,1 +1,1 @@
-export * from "./create-accommodation"
+export * from './create-accommodation'

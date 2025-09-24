@@ -1,3 +1,3 @@
-import type { ITurboFormInputTextProps } from "./turbo-form-input-text.interfaces"
+import type { ITurboFormInputTextProps } from './turbo-form-input-text.interfaces'
 
-export type { ITurboFormInputTextProps } 
+export type { ITurboFormInputTextProps }

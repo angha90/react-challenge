@@ -1,1 +1,1 @@
-export * from "./turbo-form-file-upload.view";
+export * from './turbo-form-file-upload.view'

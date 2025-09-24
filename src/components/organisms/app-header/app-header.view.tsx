@@ -1,4 +1,4 @@
-import { Navbar } from "../../atoms"
+import { Navbar } from '../../atoms'
 
 export const AppHeader = () => {
   return (

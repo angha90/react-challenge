@@ -1,3 +1,3 @@
-import { TextArea } from "./text-area.view"
+import { TextArea } from './text-area.view'
 
 export { TextArea }

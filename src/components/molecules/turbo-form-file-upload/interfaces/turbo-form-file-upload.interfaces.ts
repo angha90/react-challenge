@@ -1,6 +1,6 @@
 export interface ITurboFormFileUploadProps {
-  label?: string;
-  value?: File[];
-  onChange?: (value: File[]) => void;
-  className?: string;
+  label?: string
+  value?: File[]
+  onChange?: (value: File[]) => void
+  className?: string
 }

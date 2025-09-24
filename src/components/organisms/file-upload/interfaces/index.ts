@@ -1,1 +1,1 @@
-export * from "./file-upload-interfaces";
+export * from './file-upload-interfaces'

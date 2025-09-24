@@ -1,1 +1,1 @@
-export * from "./text-area-interfaces"
+export * from './text-area-interfaces'

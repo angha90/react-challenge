@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
-export interface INavbarProps  {
+export interface INavbarProps {
   children: ReactNode
 }

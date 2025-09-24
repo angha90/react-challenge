@@ -1,3 +1,3 @@
-import { Button } from "./button.view"
+import { Button } from './button.view'
 
 export { Button }

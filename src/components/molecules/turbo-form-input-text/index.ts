@@ -1,1 +1,1 @@
-export * from "./turbo-form-input-text.view"
+export * from './turbo-form-input-text.view'

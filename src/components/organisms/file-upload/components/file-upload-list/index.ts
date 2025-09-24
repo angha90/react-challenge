@@ -1,3 +1,3 @@
-import { FileUploadList  } from "./file-upload-list.view";
+import { FileUploadList } from './file-upload-list.view'
 
-export { FileUploadList }   
+export { FileUploadList }

@@ -1,8 +1,8 @@
 export const InputText = () => {
   return (
-      <input 
-        type="text" 
-        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-orange-500 hover:border-orange-500 transition-colors duration-200 shadow focus:shadow w-full" 
-      />
+    <input
+      type="text"
+      className="w-full rounded-md border border-gray-300 px-3 py-2 shadow transition-colors duration-200 hover:border-orange-500 focus:border-orange-500 focus:shadow focus:outline-none"
+    />
   )
 }

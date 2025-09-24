@@ -1,1 +1,1 @@
-export * from "./label-title.view"
+export * from './label-title.view'

@@ -1,3 +1,3 @@
-import { AppHeader } from "./app-header.view"
+import { AppHeader } from './app-header.view'
 
 export { AppHeader }

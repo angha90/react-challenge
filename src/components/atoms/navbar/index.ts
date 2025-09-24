@@ -1,3 +1,3 @@
-import { Navbar } from "./navbar.view"
+import { Navbar } from './navbar.view'
 
 export { Navbar }

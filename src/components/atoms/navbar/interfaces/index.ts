@@ -1,1 +1,1 @@
-export type { INavbarProps } from "./navbar.interfaces"
+export type { INavbarProps } from './navbar.interfaces'

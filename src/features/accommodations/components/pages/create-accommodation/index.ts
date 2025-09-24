@@ -1,3 +1,3 @@
-import { CreateAccommodation } from "./create-accommodation.view"
+import { CreateAccommodation } from './create-accommodation.view'
 
 export { CreateAccommodation }

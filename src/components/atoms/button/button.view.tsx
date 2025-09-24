@@ -1,4 +1,4 @@
-import type { IButtonProps } from "./interfaces"
+import type { IButtonProps } from './interfaces'
 
 export const Button = ({ children, className, onClick }: IButtonProps) => {
   return (

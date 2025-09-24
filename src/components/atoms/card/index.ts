@@ -1,3 +1,3 @@
-import { Card } from "./card.view"
+import { Card } from './card.view'
 
 export { Card }
