@@ -3,4 +3,5 @@ export interface IDropdownProps {
   placeholder?: string
   value?: string
   onChange?: (value: string) => void
+  testId?: string
 }

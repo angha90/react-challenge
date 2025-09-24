@@ -5,12 +5,17 @@ export const TurboFormDropdown = ({
   label,
   className,
   options = [],
-  placeholder
+  placeholder,
+  testId
 }: ITurboFormDropdownProps) => {
   return (
-    <div className={`flex flex-col gap-2 ${className}`}>
-      {label && <LabelInput>{label}</LabelInput>}
-      <Dropdown options={options} placeholder={placeholder} />
+    <div data-testid={testId} className={`flex flex-col gap-2 ${className}`}>
+      {label && <LabelInput testId={`${testId}-label`}>{label}</LabelInput>}
+      <Dropdown
+        testId={`${testId}-dropdown`}
+        options={options}
+        placeholder={placeholder}
+      />
     </div>
   )
 }

@@ -1,5 +1,9 @@
 import type { ICardProps } from './interfaces'
 
-export const Card = ({ children, className = '' }: ICardProps) => {
-  return <div className={`bg-white ${className}`}>{children}</div>
+export const Card = ({ children, className = '', testId }: ICardProps) => {
+  return (
+    <div data-testid={testId} className={`bg-white ${className}`}>
+      {children}
+    </div>
+  )
 }

@@ -4,4 +4,5 @@ export interface IButtonProps {
   children: ReactNode
   className?: string
   onClick: () => void
+  testId?: string
 }

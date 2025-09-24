@@ -1,8 +1,13 @@
 import type { IButtonProps } from './interfaces'
 
-export const Button = ({ children, className, onClick }: IButtonProps) => {
+export const Button = ({
+  children,
+  className,
+  onClick,
+  testId
+}: IButtonProps) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button data-testid={testId} className={className} onClick={onClick}>
       {children}
     </button>
   )
