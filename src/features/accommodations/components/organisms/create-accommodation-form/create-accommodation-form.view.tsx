@@ -22,7 +22,7 @@ export const CreateAccommodationForm = () => {
         fields={fields}
         actions={actions}
         className="flex h-full w-full flex-col gap-2"
-        fieldsClassName="flex-1 overflow-y-auto"
+        fieldsClassName="flex-1"
         actionsClassName="flex gap-2 justify-end items-center gap-2"
       />
     </div>

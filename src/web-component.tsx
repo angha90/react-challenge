@@ -4,7 +4,7 @@ import i18n from './i18n'
 import App from './App'
 import './index.css'
 
-class MyApp extends HTMLElement {
+class CustomReactForm extends HTMLElement {
   connectedCallback() {
     const mountPoint = document.createElement('div')
     this.appendChild(mountPoint)
@@ -17,4 +17,4 @@ class MyApp extends HTMLElement {
   }
 }
 
-customElements.define('my-app', MyApp)
+customElements.define('custom-react-form', CustomReactForm)
