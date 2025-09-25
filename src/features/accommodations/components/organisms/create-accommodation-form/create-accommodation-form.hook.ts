@@ -18,6 +18,14 @@ export const useCreateAccommodationForm = () => {
 
   const previousStep = useCallback(() => setStep(step - 1), [step])
 
+  const dispatchSubmitEvent = useCallback(() => {
+    const event = new CustomEvent('custom-react-submit', {
+      detail: { values }
+    })
+    const host = document.querySelector('custom-react-form')
+    ;(host ?? document).dispatchEvent(event)
+  }, [values])
+
   const handleSubmitSuccess = useCallback(() => {
     console.log('Submit payload', values)
     resetForm()
@@ -26,16 +34,9 @@ export const useCreateAccommodationForm = () => {
   }, [values, t, resetForm])
 
   const onSubmit = useCallback(() => {
-    const event = new CustomEvent('custom-react-submit', {
-      detail: { values }
-    })
-
-    const host = document.querySelector('custom-react-form')
-
-    ;(host ?? document).dispatchEvent(event)
-
+    dispatchSubmitEvent()
     handleSubmitSuccess()
-  }, [values, handleSubmitSuccess])
+  }, [handleSubmitSuccess, dispatchSubmitEvent])
 
   const fields = useMemo(
     () => createAccommodationFormFields({ step, t }),
