@@ -1,5 +1,5 @@
-import { LabelInput } from '../../atoms'
-import { FileUpload, useTurboFormContext } from '../../organisms'
+import { LabelInput } from '@/components/atoms'
+import { FileUpload, useTurboFormContext } from '@/components/organisms'
 import type { ITurboFormFileUploadProps } from './interfaces'
 
 export const TurboFormFileUpload = ({

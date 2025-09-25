@@ -1,22 +1,19 @@
-import { LabelInput, TextArea } from '../../atoms'
-import { useTurboFormContext } from '../../organisms/turbo-form/contexts'
-import type { ITurboFormTextAreaProps } from './interfaces'
+import { InputText, LabelInput } from '@/components/atoms'
+import { useTurboFormContext } from '../../contexts'
+import type { ITurboFormInputTextProps } from './interfaces'
 
-export const TurboFormTextArea = ({
+export const TurboFormInputText = ({
   label,
   className,
-  rows,
   testId,
   name
-}: ITurboFormTextAreaProps) => {
-  const { values, errors, setValues, validate } = useTurboFormContext()
-
+}: ITurboFormInputTextProps) => {
+  const { values, setValues, validate, errors } = useTurboFormContext()
   return (
     <div data-testid={testId} className={`flex flex-col gap-2 ${className}`}>
       {label && <LabelInput testId={`${testId}-label`}>{label}</LabelInput>}
-      <TextArea
-        testId={`${testId}-textarea`}
-        rows={rows}
+      <InputText
+        testId={`${testId}-input`}
         value={(values[name] as string) || ''}
         onChange={(value) => setValues({ ...values, [name]: value })}
         onBlur={() => validate(name)}

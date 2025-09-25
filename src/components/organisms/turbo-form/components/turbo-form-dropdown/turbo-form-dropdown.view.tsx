@@ -1,19 +1,23 @@
-import { InputText, LabelInput } from '../../atoms'
-import { useTurboFormContext } from '../../organisms/turbo-form/contexts'
-import type { ITurboFormInputTextProps } from './interfaces'
+import { Dropdown, LabelInput } from '@/components/atoms'
+import type { ITurboFormDropdownProps } from './interfaces'
+import { useTurboFormContext } from '../../contexts'
 
-export const TurboFormInputText = ({
+export const TurboFormDropdown = ({
   label,
   className,
+  options = [],
+  placeholder,
   testId,
   name
-}: ITurboFormInputTextProps) => {
-  const { values, setValues, validate, errors } = useTurboFormContext()
+}: ITurboFormDropdownProps) => {
+  const { values, setValues, errors, validate } = useTurboFormContext()
   return (
     <div data-testid={testId} className={`flex flex-col gap-2 ${className}`}>
       {label && <LabelInput testId={`${testId}-label`}>{label}</LabelInput>}
-      <InputText
-        testId={`${testId}-input`}
+      <Dropdown
+        testId={`${testId}-dropdown`}
+        options={options}
+        placeholder={placeholder}
         value={(values[name] as string) || ''}
         onChange={(value) => setValues({ ...values, [name]: value })}
         onBlur={() => validate(name)}

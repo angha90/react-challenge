@@ -4,7 +4,7 @@ import {
   TurboFormDropdown,
   TurboFormTextArea,
   TurboFormFileUpload
-} from '../../molecules'
+} from './components'
 import type { ITurboFormProps } from './interfaces'
 
 export const TurboForm = ({
