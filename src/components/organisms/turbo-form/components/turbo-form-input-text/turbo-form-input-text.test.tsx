@@ -1,9 +1,22 @@
 import { render, screen } from '@testing-library/react'
+import { I18nextProvider } from 'react-i18next'
+import i18n from '../../../../../i18n'
+import { TurboFormProvider } from '../../providers'
 import { TurboFormInputText } from './turbo-form-input-text.view'
+
+const renderWithProviders = (component: React.ReactElement) => {
+  return render(
+    <I18nextProvider i18n={i18n}>
+      <TurboFormProvider>
+        {component}
+      </TurboFormProvider>
+    </I18nextProvider>
+  )
+}
 
 describe('TurboFormInputText', () => {
   it('should render correctly', () => {
-    render(
+    renderWithProviders(
       <TurboFormInputText testId="turbo-form-input-text-test-id" name="test" />
     )
     const turboFormInputText = screen.getByTestId(
@@ -13,7 +26,7 @@ describe('TurboFormInputText', () => {
   })
 
   it('should not render input text label correctly', () => {
-    render(
+    renderWithProviders(
       <TurboFormInputText testId="turbo-form-input-text-test-id" name="test" />
     )
     const turboFormInputTextLabel = screen.queryByTestId(
@@ -23,7 +36,7 @@ describe('TurboFormInputText', () => {
   })
 
   it('should render input text label correctly', () => {
-    render(
+    renderWithProviders(
       <TurboFormInputText
         testId="turbo-form-input-text-test-id"
         name="test"
@@ -37,7 +50,7 @@ describe('TurboFormInputText', () => {
   })
 
   it('should render input text correctly', () => {
-    render(
+    renderWithProviders(
       <TurboFormInputText testId="turbo-form-input-text-test-id" name="test" />
     )
     const turboFormInputTextInput = screen.getByTestId(

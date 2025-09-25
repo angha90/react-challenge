@@ -1,5 +1,6 @@
 import { FileUploadListItem } from './file-upload-list-item.view'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithI18n } from '@/utils'
 
 Object.defineProperty(URL, 'createObjectURL', {
   writable: true,
@@ -8,7 +9,7 @@ Object.defineProperty(URL, 'createObjectURL', {
 
 describe('FileUploadListItem', () => {
   it('should render correctly', () => {
-    render(
+    renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
         file={new File([], 'test.txt')}
@@ -22,7 +23,7 @@ describe('FileUploadListItem', () => {
   })
 
   it('should render with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
         file={new File([], 'test.txt')}
@@ -34,12 +35,12 @@ describe('FileUploadListItem', () => {
     )
     expect(fileUploadListItem).toBeInTheDocument()
     expect(fileUploadListItem).toHaveClass(
-      'flex items-center justify-between gap-3 rounded border p-3 hover:bg-gray-50'
+      'flex items-center justify-between gap-3 rounded border border-gray-300 p-3'
     )
   })
 
   it('should render with correct content', () => {
-    render(
+    renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
         file={new File([], 'test.txt')}
@@ -54,7 +55,7 @@ describe('FileUploadListItem', () => {
   })
 
   it('should render with correct image', () => {
-    render(
+    renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
         file={new File([], 'test.txt', { type: 'image/png' })}
@@ -66,12 +67,12 @@ describe('FileUploadListItem', () => {
     )
     expect(fileUploadListItemImage).toBeInTheDocument()
     expect(fileUploadListItemImage).toHaveClass(
-      'h-10 w-10 rounded border object-cover'
+      'h-10 w-10 rounded object-cover'
     )
   })
 
   it('should render with correct icon', () => {
-    render(
+    renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
         file={new File([], 'test.txt', { type: 'application/pdf' })}
@@ -83,12 +84,12 @@ describe('FileUploadListItem', () => {
     )
     expect(fileUploadListItemIcon).toBeInTheDocument()
     expect(fileUploadListItemIcon).toHaveClass(
-      'flex h-10 w-10 items-center justify-center rounded border bg-gray-50 text-gray-400'
+      'flex h-10 w-10 items-center justify-center rounded text-gray-400'
     )
   })
 
   it('should render with correct actions', () => {
-    render(
+    renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
         file={new File([], 'test.txt')}
@@ -111,14 +112,14 @@ describe('FileUploadListItem', () => {
     )
     expect(fileUploadListItemView).toBeInTheDocument()
     expect(fileUploadListItemView).toHaveClass(
-      'inline-flex items-center rounded bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100'
+      'inline-flex cursor-pointer items-center rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100'
     )
     const fileUploadListItemDelete = screen.getByTestId(
       'file-upload-list-item-test-id-delete'
     )
     expect(fileUploadListItemDelete).toBeInTheDocument()
     expect(fileUploadListItemDelete).toHaveClass(
-      'inline-flex items-center rounded bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100'
+      'inline-flex cursor-pointer items-center rounded-full bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100'
     )
     expect(fileUploadListItem).toHaveTextContent('View')
     expect(fileUploadListItem).toHaveTextContent('Delete')

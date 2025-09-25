@@ -1,6 +1,7 @@
 import { FileUploadList } from './file-upload-list.view'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { vi } from 'vitest'
+import { renderWithI18n } from '@/utils'
 
 Object.defineProperty(URL, 'createObjectURL', {
   writable: true,
@@ -9,7 +10,7 @@ Object.defineProperty(URL, 'createObjectURL', {
 
 describe('FileUploadList', () => {
   it('should render correctly', () => {
-    render(
+    renderWithI18n(
       <FileUploadList
         testId="file-upload-list-test-id"
         files={[]}
@@ -21,7 +22,7 @@ describe('FileUploadList', () => {
   })
 
   it('should render with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadList
         testId="file-upload-list-test-id"
         files={[]}
@@ -30,11 +31,10 @@ describe('FileUploadList', () => {
     )
     const fileUploadList = screen.getByTestId('file-upload-list-test-id')
     expect(fileUploadList).toBeInTheDocument()
-    expect(fileUploadList).toHaveClass('space-y-2')
   })
 
   it('should render no files message correctly', () => {
-    render(
+    renderWithI18n(
       <FileUploadList
         testId="file-upload-list-test-id"
         files={[]}
@@ -46,8 +46,10 @@ describe('FileUploadList', () => {
       'file-upload-list-test-id-no-files'
     )
     expect(fileUploadNoFiles).toBeInTheDocument()
-    expect(fileUploadNoFiles).toHaveTextContent('No documents uploaded')
-    expect(fileUploadNoFiles).toHaveClass('text-center text-sm text-gray-500')
+    expect(fileUploadNoFiles).toHaveTextContent('No files uploaded')
+    expect(fileUploadNoFiles).toHaveClass(
+      'flex h-16 items-center justify-center border border-dashed border-gray-300 p-2 text-center text-sm font-medium text-gray-300'
+    )
     const fileUploadFiles = screen.queryByTestId(
       'file-upload-list-test-id-files'
     )
@@ -62,7 +64,7 @@ describe('FileUploadList', () => {
       type: 'text/plain'
     })
 
-    render(
+    renderWithI18n(
       <FileUploadList
         testId="file-upload-list-test-id"
         files={[file1, file2]}

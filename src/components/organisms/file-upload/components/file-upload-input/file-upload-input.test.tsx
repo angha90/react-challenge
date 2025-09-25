@@ -1,11 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import { vi } from 'vitest'
-
 import { FileUploadInput } from './file-upload-input.view'
+import { renderWithI18n } from '@/utils'
 
 describe('FileUploadInput', () => {
   it('should render correctly', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId('file-upload-input-test-id')
@@ -13,7 +13,7 @@ describe('FileUploadInput', () => {
   })
 
   it('should render container with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId(
@@ -26,7 +26,7 @@ describe('FileUploadInput', () => {
   })
 
   it('should render icon with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId('file-upload-input-test-id-icon')
@@ -37,7 +37,7 @@ describe('FileUploadInput', () => {
   })
 
   it('should render text with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId('file-upload-input-test-id-text')
@@ -46,7 +46,7 @@ describe('FileUploadInput', () => {
   })
 
   it('should render label with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId(
@@ -54,12 +54,12 @@ describe('FileUploadInput', () => {
     )
     expect(fileUploadInput).toBeInTheDocument()
     expect(fileUploadInput).toHaveClass(
-      'inline-block cursor-pointer rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700'
+      'inline-block cursor-pointer rounded-full border border-2 border-gray-300 bg-white px-4 py-2 font-medium text-gray-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white'
     )
   })
 
   it('should render label container with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId(
@@ -70,7 +70,7 @@ describe('FileUploadInput', () => {
   })
 
   it('should render label with correct content', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId(
@@ -80,7 +80,7 @@ describe('FileUploadInput', () => {
   })
 
   it('should render input with correct styles', () => {
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={() => {}} />
     )
     const fileUploadInput = screen.getByTestId(
@@ -94,7 +94,7 @@ describe('FileUploadInput', () => {
 
   it('should render input with correct onChange', () => {
     const onChange = vi.fn()
-    render(
+    renderWithI18n(
       <FileUploadInput testId="file-upload-input-test-id" onChange={onChange} />
     )
     const fileUploadInput = screen.getByTestId(

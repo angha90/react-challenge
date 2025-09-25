@@ -1,21 +1,22 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import { Dropdown } from './dropdown.view'
+import { renderWithI18n } from '@/utils'
 
 describe('Dropdown', () => {
   it('should render correctly', () => {
-    render(<Dropdown testId="dropdown-test-id" />)
+    renderWithI18n(<Dropdown testId="dropdown-test-id" />)
     const dropdown = screen.getByTestId('dropdown-test-id')
     expect(dropdown).toBeInTheDocument()
   })
 
   it('should render with correct content', () => {
-    render(<Dropdown testId="dropdown-test-id" />)
+    renderWithI18n(<Dropdown testId="dropdown-test-id" />)
     const dropdown = screen.getByTestId('dropdown-test-id')
     expect(dropdown).toHaveTextContent('Select an option')
   })
 
   it('should render with correct styles', () => {
-    render(<Dropdown testId="dropdown-test-id" />)
+    renderWithI18n(<Dropdown testId="dropdown-test-id" />)
     const dropdown = screen.getByTestId('dropdown-test-id')
     expect(dropdown).toHaveClass(
       'w-full',
@@ -24,10 +25,6 @@ describe('Dropdown', () => {
       'border',
       'border-gray-300',
       'bg-white',
-      "bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNkw4IDEwTDEyIDYiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K')]",
-      'bg-[length:16px]',
-      'bg-[right_0.75rem_center]',
-      'bg-no-repeat',
       'px-3',
       'py-2',
       'pr-8',
@@ -39,10 +36,16 @@ describe('Dropdown', () => {
       'focus:shadow',
       'focus:outline-none'
     )
+    expect(dropdown.className).toContain(
+      'bg-[url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNkw4IDEwTDEyIDYiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K")]'
+    )
+    expect(dropdown.className).toContain('bg-[length:16px]')
+    expect(dropdown.className).toContain('bg-[right_0.75rem_center]')
+    expect(dropdown.className).toContain('bg-no-repeat')
   })
 
   it('should render with correct options', () => {
-    render(
+    renderWithI18n(
       <Dropdown
         testId="dropdown-test-id"
         options={[
@@ -57,7 +60,7 @@ describe('Dropdown', () => {
   })
 
   it('should render with correct value', () => {
-    render(
+    renderWithI18n(
       <Dropdown
         testId="dropdown-test-id"
         value={'1'}
@@ -73,7 +76,7 @@ describe('Dropdown', () => {
 
   it('should render with correct onChange', () => {
     const onChange = vi.fn()
-    render(
+    renderWithI18n(
       <Dropdown
         testId="dropdown-test-id"
         onChange={onChange}
