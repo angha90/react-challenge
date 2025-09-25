@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useTurboFormContext } from '../../../../../components/organisms'
+import { useTurboFormContext } from '@/components/organisms'
 import {
   createAccommodationFormActions,
   createAccommodationFormFields,
   ECreateAccommodationFormSteps
-} from '../../../utils'
+} from '@/features/accommodations/utils'
 
 export const useCreateAccommodationForm = () => {
   const { t } = useTranslation()

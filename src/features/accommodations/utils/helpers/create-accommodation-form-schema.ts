@@ -1,4 +1,4 @@
-import type { TypeTurboFormSchemaValue } from '../../../../components/organisms'
+import type { TypeTurboFormSchemaValue } from '@/components/organisms'
 
 export const createAccommodationFormSchema: Record<
   string,

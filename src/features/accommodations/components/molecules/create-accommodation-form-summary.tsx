@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { LabelTitle } from '../../../../components/atoms'
-import { useTurboFormContext } from '../../../../components/organisms'
-import { FileUploadList } from '../../../../components/organisms/file-upload/components'
+import { LabelTitle } from '@/components/atoms'
+import { useTurboFormContext } from '@/components/organisms'
+import { FileUploadList } from '@/components/organisms/file-upload/components'
 
 export const CreateAccommodationFormSummary = () => {
   const { t } = useTranslation()

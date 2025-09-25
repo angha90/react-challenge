@@ -1,4 +1,4 @@
-import { LabelTitle } from '../../../../components/atoms'
+import { LabelTitle } from '@/components/atoms'
 import { CreateAccommodationFormSummary } from '../../components/molecules'
 import { accommodationFormStepTitle } from '../constants'
 import { ECreateAccommodationFormSteps } from '../enums'

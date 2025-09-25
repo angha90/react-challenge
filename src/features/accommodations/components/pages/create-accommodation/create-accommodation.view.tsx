@@ -1,6 +1,6 @@
-import { Card } from '../../../../../components/atoms'
-import { TurboFormProvider } from '../../../../../components/organisms/turbo-form/providers'
-import { createAccommodationFormSchema } from '../../../utils/helpers'
+import { Card } from '@/components/atoms'
+import { TurboFormProvider } from '@/components/organisms/turbo-form/providers'
+import { createAccommodationFormSchema } from '@/features/accommodations/utils/helpers'
 import { CreateAccommodationForm } from '../../organisms'
 
 export const CreateAccommodation = () => {

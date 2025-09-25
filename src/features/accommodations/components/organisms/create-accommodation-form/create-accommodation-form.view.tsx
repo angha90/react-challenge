@@ -1,4 +1,4 @@
-import { TurboForm } from '../../../../../components/organisms'
+import { TurboForm } from '@/components/organisms'
 
 import { useCreateAccommodationForm } from './create-accommodation-form.hook'
 
