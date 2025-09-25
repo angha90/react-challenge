@@ -5,4 +5,5 @@ export interface IButtonProps {
   className?: string
   onClick: () => void
   testId?: string
+  disabled?: boolean
 }

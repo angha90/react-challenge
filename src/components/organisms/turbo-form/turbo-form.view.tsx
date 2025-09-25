@@ -73,6 +73,7 @@ export const TurboForm = ({
               key={action.label}
               onClick={action.onClick}
               className={action.className}
+              disabled={action.disabled}
             >
               {action.label}
             </Button>

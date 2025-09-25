@@ -4,12 +4,16 @@ import type {
   ITurboFormContext,
   ITurboFormProviderProps,
   TypeTurboFormValues,
-  TypeTurboFormErrors
+  TypeTurboFormErrors,
+  TypeTurboFormSchemaValue
 } from '../../interfaces'
 
 const validators: Record<
   string,
-  (value: any, ruleValue?: boolean | number) => boolean
+  (
+    value: string | number | boolean | File[],
+    ruleValue?: boolean | number
+  ) => boolean
 > = {
   required: (value) => value != null && value !== '',
 
@@ -41,12 +45,31 @@ const validators: Record<
       ? value === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
       : true,
 
-  phone: (value: string) =>
+  phone: (value) =>
     typeof value === 'string'
       ? value === '' || /^[0-9]{1,9}$/.test(value)
       : true
 }
 
+const errorGetter = (
+  key: string,
+  values: TypeTurboFormValues,
+  schema: Record<string, TypeTurboFormSchemaValue[]>
+) => {
+  const fieldValue = values[key]
+  const fieldSchema = schema?.[key] || []
+  let firstError: string | null = null
+
+  for (const rule of fieldSchema) {
+    const validator = validators[rule.type]
+    if (validator && !validator(fieldValue, rule.value)) {
+      firstError = rule.message
+      break
+    }
+  }
+
+  return firstError ? [firstError] : []
+}
 export const TurboFormProvider = ({
   children,
   value,
@@ -56,20 +79,14 @@ export const TurboFormProvider = ({
   const [errors, setErrors] = useState<TypeTurboFormErrors>(value?.errors || {})
 
   const validate = (key: string) => {
-    const fieldValue = values[key]
-    const fieldSchema = schema?.[key] || []
-    let firstError: string | null = null
+    const newErrors = errorGetter(key, values, schema || {})
 
-    for (const rule of fieldSchema) {
-      const validator = validators[rule.type]
-      if (validator && !validator(fieldValue, rule.value)) {
-        firstError = rule.message
-        break
-      }
-    }
-
-    setErrors((prev) => ({ ...prev, [key]: firstError ? [firstError] : [] }))
-    return firstError ? [firstError] : []
+    setErrors((prev) => ({ ...prev, [key]: newErrors }))
+  }
+  const isFormValid = (fields: string[]) => {
+    return fields.every(
+      (field) => errorGetter(field, values, schema || {}).length === 0
+    )
   }
 
   const contextValue: ITurboFormContext = {
@@ -77,7 +94,8 @@ export const TurboFormProvider = ({
     errors,
     setValues,
     setErrors,
-    validate
+    validate,
+    isFormValid
   }
 
   return (

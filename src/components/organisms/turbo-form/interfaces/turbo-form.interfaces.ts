@@ -71,7 +71,8 @@ export interface ITurboFormContext {
   schema?: Record<string, TypeTurboFormSchemaValue[]>
   setValues: (values: TypeTurboFormValues) => void
   setErrors: (errors: TypeTurboFormErrors) => void
-  validate: (key: string) => string[]
+  validate: (key: string) => void
+  isFormValid: (fields: string[]) => boolean
 }
 
 export interface ITurboFormProviderProps {

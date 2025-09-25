@@ -4,10 +4,16 @@ export const Button = ({
   children,
   className,
   onClick,
-  testId
+  testId,
+  disabled
 }: IButtonProps) => {
   return (
-    <button data-testid={testId} className={className} onClick={onClick}>
+    <button
+      data-testid={testId}
+      className={className}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   )
