@@ -5,6 +5,10 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  define: {
+    'process.env': '{}',
+    global: 'globalThis'
+  },
   build: {
     lib: {
       entry: 'src/web-component.tsx',
@@ -13,8 +17,14 @@ export default defineConfig({
       formats: ['es']
     },
     rollupOptions: {
-      external: []
-    }
+      external: [],
+      output: {
+        globals: {
+          process: '{}'
+        }
+      }
+    },
+    cssCodeSplit: false
   },
   test: {
     globals: true,
