@@ -7,15 +7,20 @@ export const AppHeader = ({ testId }: IAppHeaderProps) => {
 
   return (
     <Navbar testId={testId} className="flex items-center justify-between p-4">
-      <div className="w-[150px]">
+      <div data-testid={`${testId}-logo-container`} className="w-[150px]">
         <img
+          data-testid={`${testId}-logo`}
           src="/public/avantiologo.png"
           alt="logo"
           className="h-full w-full"
         />
       </div>
-      <div className="w-[150px]">
+      <div
+        data-testid={`${testId}-language-dropdown-container`}
+        className="w-[150px]"
+      >
         <Dropdown
+          testId={`${testId}-language-dropdown`}
           options={languageDropdownOptions}
           onChange={handleChangeLanguage}
         />
