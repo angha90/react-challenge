@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React Form - Web Component</title>
     <!-- NOTE:: Add your script here -->
-    <script src=""></script>
+    <script type="module" src="./dist/my-app.js"></script>
   </head>
   <body>
     <script>
+          <my-app></my-app>
+
       /* NOTE:: You can modify this script if you need to */
       const form = document.createElement('custom-react-form')
       form.addEventListener('custom-react-submit', (data) => console.log(data))

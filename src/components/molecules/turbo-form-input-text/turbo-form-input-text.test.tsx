@@ -3,7 +3,7 @@ import { TurboFormInputText } from './turbo-form-input-text.view'
 
 describe('TurboFormInputText', () => {
   it('should render correctly', () => {
-    render(<TurboFormInputText testId="turbo-form-input-text-test-id" />)
+    render(<TurboFormInputText testId="turbo-form-input-text-test-id" name="test" />)
     const turboFormInputText = screen.getByTestId(
       'turbo-form-input-text-test-id'
     )
@@ -11,7 +11,7 @@ describe('TurboFormInputText', () => {
   })
 
   it('should not render input text label correctly', () => {
-    render(<TurboFormInputText testId="turbo-form-input-text-test-id" />)
+    render(<TurboFormInputText testId="turbo-form-input-text-test-id" name="test" />)
     const turboFormInputTextLabel = screen.queryByTestId(
       'turbo-form-input-text-test-id-label'
     )
@@ -22,6 +22,7 @@ describe('TurboFormInputText', () => {
     render(
       <TurboFormInputText
         testId="turbo-form-input-text-test-id"
+        name="test"
         label="Test Label"
       />
     )
@@ -32,7 +33,7 @@ describe('TurboFormInputText', () => {
   })
 
   it('should render input text correctly', () => {
-    render(<TurboFormInputText testId="turbo-form-input-text-test-id" />)
+    render(<TurboFormInputText testId="turbo-form-input-text-test-id" name="test" />)
     const turboFormInputTextInput = screen.getByTestId(
       'turbo-form-input-text-test-id-input'
     )
