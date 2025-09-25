@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 export const useAppHeader = () => {
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation()
 
   const handleChangeLanguage = (value: string) => {
     i18n.changeLanguage(value)
@@ -10,8 +10,8 @@ export const useAppHeader = () => {
   return {
     handleChangeLanguage,
     languageDropdownOptions: [
-      { value: 'en', label: 'English' },
-      { value: 'es', label: 'Spanish' }
+      { value: 'en', label: t('languages.en') },
+      { value: 'es', label: t('languages.es') }
     ]
   }
 }

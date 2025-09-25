@@ -3,7 +3,7 @@ import type { IFileUploadList } from '../../interfaces'
 import { FileUploadListItem } from '../file-upload-list-item'
 
 export const FileUploadList = ({
-  files,
+  files = [],
   onRemove,
   testId
 }: IFileUploadList) => {

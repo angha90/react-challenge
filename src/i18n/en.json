@@ -1,4 +1,8 @@
 {
+  "languages": {
+    "es": "Spanish",
+    "en": "English"
+  },
   "uploadFile": {
     "message": "Please, use the button below to upload your files.",
     "label": "Upload files",

@@ -1,4 +1,8 @@
-{
+{ 
+  "languages": {
+  "es": "Español",
+  "en": "Inglés"
+  },
   "uploadFile": {
     "message": "Por favor, Use el botón abajo para subir sus archivos.",
     "label": "Subir archivos",

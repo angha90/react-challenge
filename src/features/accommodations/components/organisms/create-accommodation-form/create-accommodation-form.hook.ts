@@ -19,6 +19,7 @@ export const useCreateAccommodationForm = () => {
   const previousStep = useCallback(() => setStep(step - 1), [step])
 
   const onSubmit = useCallback(() => {
+    console.log('submit values', values)
     const event = new CustomEvent('custom-react-submit', {
       detail: { values }
     })
@@ -52,7 +53,6 @@ export const useCreateAccommodationForm = () => {
   )
 
   return {
-    step,
     fields,
     actions
   }
