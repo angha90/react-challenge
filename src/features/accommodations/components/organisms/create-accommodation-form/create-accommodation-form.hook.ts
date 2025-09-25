@@ -9,7 +9,7 @@ import {
 
 export const useCreateAccommodationForm = () => {
   const { t } = useTranslation()
-  const { values, isFormValid } = useTurboFormContext()
+  const { values, isFormValid, resetForm } = useTurboFormContext()
   const [step, setStep] = useState<ECreateAccommodationFormSteps>(
     ECreateAccommodationFormSteps.ACCOMMODATION
   )
@@ -18,8 +18,14 @@ export const useCreateAccommodationForm = () => {
 
   const previousStep = useCallback(() => setStep(step - 1), [step])
 
+  const handleSubmitSuccess = useCallback(() => {
+    console.log('Submit payload', values)
+    resetForm()
+    setStep(ECreateAccommodationFormSteps.ACCOMMODATION)
+    alert(t('accomodations.createForm.messages.submitSuccess'))
+  }, [values, t, resetForm])
+
   const onSubmit = useCallback(() => {
-    console.log('submit values', values)
     const event = new CustomEvent('custom-react-submit', {
       detail: { values }
     })
@@ -27,7 +33,9 @@ export const useCreateAccommodationForm = () => {
     const host = document.querySelector('custom-react-form')
 
     ;(host ?? document).dispatchEvent(event)
-  }, [values])
+
+    handleSubmitSuccess()
+  }, [values, handleSubmitSuccess])
 
   const fields = useMemo(
     () => createAccommodationFormFields({ step, t }),

@@ -59,6 +59,9 @@
         "ownerNameMaxLength": "El nombre del propietario debe tener menos de 64 caracteres",
         "ownerEmailInvalid": "El email del propietario es inválido",
         "ownerPhoneInvalid": "El teléfono del propietario es inválido"
+      },
+      "messages": {
+        "submitSuccess": "El alojamiento ha sido creado correctamente."
       }
     }
   }

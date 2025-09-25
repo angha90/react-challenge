@@ -59,6 +59,9 @@
         "ownerEmailRequired": "Owner email is required",
         "ownerEmailInvalid": "Owner email is invalid",
         "ownerPhoneInvalid": "Owner phone is invalid"
+      },
+      "messages": {
+        "submitSuccess": "The accommodation has been created successfully."
       }
     }
   }

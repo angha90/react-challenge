@@ -27,13 +27,19 @@ export const TurboFormProvider = ({
     )
   }
 
+  const resetForm = () => {
+    setValues({})
+    setErrors({})
+  }
+
   const contextValue: ITurboFormContext = {
     values,
     errors,
     setValues,
     setErrors,
     validate,
-    isFormValid
+    isFormValid,
+    resetForm
   }
 
   return (

@@ -74,6 +74,7 @@ export interface ITurboFormContext {
   setErrors: (errors: TypeTurboFormErrors) => void
   validate: (key: string, valuesArg: TypeTurboFormValues) => void
   isFormValid: (fields: string[]) => boolean
+  resetForm: () => void
 }
 
 export interface ITurboFormProviderProps {
