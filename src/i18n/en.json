@@ -20,6 +20,11 @@
         "owner": "Owner",
         "summary": "Summary"
       },
+      "accommodationTypes": {
+        "department": "Apartment",
+        "villa": "Villa",
+        "house": "House"
+      },
       "field": {
         "name": "Name",
         "address": "Address",
@@ -34,6 +39,26 @@
         "back": "Back",
         "next": "Next",
         "submit": "Submit"
+      },
+      "validations": {
+        "nameRequired": "Name is required",
+        "nameNumberIsNotAllowed": "Name must not contain numbers",
+        "nameMinLength": "Name must be at least 4 characters long",
+        "nameMaxLength": "Name must be less than 128 characters long",
+        "addressRequired": "Address is required",
+        "addressMinLength": "Address must be at least 4 characters long",
+        "addressMaxLength": "Address must be less than 128 characters long",
+        "descriptionMinLength": "Description must be at least 128 characters long",
+        "descriptionMaxLength": "Description must be less than 2048 characters long",
+        "typeRequired": "Type is required",
+        "photosFileType": "Only PNG or JPG images are allowed",
+        "photosMaxLength": "Photos must be less than 2 photos",
+        "ownerNameRequired": "Owner is required",
+        "ownerNameMinLength": "Owner must be at least 4 characters long",
+        "ownerNameMaxLength": "Owner must be less than 64 characters long",
+        "ownerEmailRequired": "Owner email is required",
+        "ownerEmailInvalid": "Owner email is invalid",
+        "ownerPhoneInvalid": "Owner phone is invalid"
       }
     }
   }

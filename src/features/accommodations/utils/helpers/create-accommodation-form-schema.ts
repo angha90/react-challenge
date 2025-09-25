@@ -7,94 +7,99 @@ export const createAccommodationFormSchema: Record<
   name: [
     {
       type: 'required',
-      message: 'Name is required'
+      message: 'accomodations.createForm.validations.nameRequired'
     },
     {
       type: 'numberIsNotAllowed',
-      message: 'Name must not contain numbers'
+      message: 'accomodations.createForm.validations.nameNumberIsNotAllowed'
     },
     {
       type: 'minLength',
-      message: 'Name must be at least 4 characters long',
+      message: 'accomodations.createForm.validations.nameMinLength',
       value: 4
     },
     {
       type: 'maxLength',
-      message: 'Name must be less than 128 characters long',
+      message: 'accomodations.createForm.validations.nameMaxLength',
       value: 128
     }
   ],
   address: [
     {
       type: 'required',
-      message: 'Address is required'
+      message: 'accomodations.createForm.validations.addressRequired'
     },
     {
       type: 'minLength',
-      message: 'Address must be at least 4 characters long',
+      message: 'accomodations.createForm.validations.addressMinLength',
       value: 4
     },
     {
       type: 'maxLength',
-      message: 'Address must be less than 128 characters long',
+      message: 'accomodations.createForm.validations.addressMaxLength',
       value: 128
     }
   ],
   description: [
     {
       type: 'minLength',
-      message: 'Description must be at least 128 characters long',
+      message: 'accomodations.createForm.validations.descriptionMinLength',
       value: 128
     },
     {
       type: 'maxLength',
-      message: 'Description must be less than 2048 characters long',
+      message: 'accomodations.createForm.validations.descriptionMaxLength',
       value: 2048
     }
   ],
   type: [
     {
       type: 'required',
-      message: 'Type is required'
+      message: 'accomodations.createForm.validations.typeRequired'
     }
   ],
   photos: [
     {
+      type: 'fileType',
+      message: 'accomodations.createForm.validations.photosFileType',
+      value: ['image/png', 'image/jpeg', '.png', '.jpg']
+    },
+    {
       type: 'maxLength',
-      message: 'Photos must be less than 2 photos',
+      message: 'accomodations.createForm.validations.photosMaxLength',
       value: 2
     }
   ],
   ownerName: [
     {
       type: 'required',
-      message: 'Owner is required'
+      message: 'accomodations.createForm.validations.ownerNameRequired'
     },
     {
       type: 'minLength',
-      message: 'Owner must be at least 4 characters long',
+      message: 'accomodations.createForm.validations.ownerNameMinLength',
       value: 4
     },
     {
       type: 'maxLength',
-      message: 'Owner must be less than 64 characters long',
+      message: 'accomodations.createForm.validations.ownerNameMaxLength',
       value: 64
     }
   ],
   ownerEmail: [
     {
       type: 'required',
-      message: 'Owner email is required'
+      message: 'accomodations.createForm.validations.ownerEmailRequired'
     },
     {
       type: 'email',
-      message: 'Owner email is invalid'
+      message: 'accomodations.createForm.validations.ownerEmailInvalid'
     }
   ],
   ownerPhone: [
     {
       type: 'phone',
-      message: 'Owner phone is invalid'
+      message: 'accomodations.createForm.validations.ownerPhoneInvalid'
     }
   ]
 }

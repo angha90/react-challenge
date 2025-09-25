@@ -58,11 +58,12 @@ export type TypeTurboFormErrorKey =
   | 'numberIsNotAllowed'
   | 'phone'
   | 'email'
+  | 'fileType'
 
 export interface TypeTurboFormSchemaValue {
   type: TypeTurboFormErrorKey
   message: string
-  value?: boolean | number
+  value?: boolean | number | string | string[]
 }
 
 export interface ITurboFormContext {
@@ -71,7 +72,7 @@ export interface ITurboFormContext {
   schema?: Record<string, TypeTurboFormSchemaValue[]>
   setValues: (values: TypeTurboFormValues) => void
   setErrors: (errors: TypeTurboFormErrors) => void
-  validate: (key: string) => void
+  validate: (key: string, valuesArg: TypeTurboFormValues) => void
   isFormValid: (fields: string[]) => boolean
 }
 

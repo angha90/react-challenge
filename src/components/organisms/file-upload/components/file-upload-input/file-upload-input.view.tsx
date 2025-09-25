@@ -38,7 +38,7 @@ export const FileUploadInput = ({
           <label
             htmlFor="fileInput"
             data-testid={`${testId}-label`}
-            className="inline-block cursor-pointer rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
+            className="inline-block cursor-pointer rounded-full border border-2 border-gray-300 bg-white px-4 py-2 font-medium text-gray-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
           >
             {t('uploadFile.label')}
           </label>

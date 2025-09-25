@@ -25,7 +25,7 @@ export const FileUploadList = ({
       ) : (
         <p
           data-testid={`${testId}-no-files`}
-          className="text-center text-sm font-medium text-gray-500"
+          className="flex h-16 items-center justify-center border border-dashed border-gray-300 p-2 text-center text-sm font-medium text-gray-300"
         >
           {t('uploadFile.noFiles')}
         </p>

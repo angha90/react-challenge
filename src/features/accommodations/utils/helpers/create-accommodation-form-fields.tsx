@@ -46,9 +46,18 @@ export const createAccommodationFormFields = ({
     label: t('accomodations.createForm.field.type'),
     type: 'dropdown' as const,
     options: [
-      { value: 'apartment', label: 'Apartment' },
-      { value: 'villa', label: 'Villa' },
-      { value: 'house', label: 'House' }
+      {
+        value: 'department',
+        label: t('accomodations.createForm.accommodationTypes.department')
+      },
+      {
+        value: 'villa',
+        label: t('accomodations.createForm.accommodationTypes.villa')
+      },
+      {
+        value: 'house',
+        label: t('accomodations.createForm.accommodationTypes.house')
+      }
     ],
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION

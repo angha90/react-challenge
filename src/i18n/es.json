@@ -20,6 +20,11 @@
         "owner": "Propietario",
         "summary": "Resumen"
       },
+      "accommodationTypes": {
+        "department": "Apartamento",
+        "villa": "Villa",
+        "house": "Casa"
+      },
       "field": {
         "name": "Nombre",
         "address": "Dirección",
@@ -34,6 +39,26 @@
         "back": "Atrás",
         "next": "Siguiente",
         "submit": "Enviar"
+      },
+      "validations": {
+        "nameRequired": "El nombre es requerido",
+        "nameNumberIsNotAllowed": "El nombre no debe contener números",
+        "nameMinLength": "El nombre debe tener al menos 4 caracteres",
+        "nameMaxLength": "El nombre debe tener menos de 128 caracteres",
+        "addressRequired": "La dirección es requerida",
+        "addressMinLength": "La dirección debe tener al menos 4 caracteres",
+        "addressMaxLength": "La dirección debe tener menos de 128 caracteres",
+        "descriptionMinLength": "La descripción debe tener al menos 128 caracteres",
+        "descriptionMaxLength": "La descripción debe tener menos de 2048 caracteres",
+        "typeRequired": "El tipo es requerido",
+        "photosFileType": "Solo se permiten imágenes PNG o JPG",
+        "photosMaxLength": "Las fotos deben ser menos de 2 fotos",
+        "ownerNameRequired": "El nombre del propietario es requerido",
+        "ownerEmailRequired": "El email del propietario es requerido",
+        "ownerNameMinLength": "El nombre del propietario debe tener al menos 4 caracteres",
+        "ownerNameMaxLength": "El nombre del propietario debe tener menos de 64 caracteres",
+        "ownerEmailInvalid": "El email del propietario es inválido",
+        "ownerPhoneInvalid": "El teléfono del propietario es inválido"
       }
     }
   }
