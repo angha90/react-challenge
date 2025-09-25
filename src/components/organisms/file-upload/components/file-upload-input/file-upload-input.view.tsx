@@ -1,6 +1,10 @@
 import type { IFileUploadInput } from '../../interfaces'
 
-export const FileUploadInput = ({ onChange, testId }: IFileUploadInput) => {
+export const FileUploadInput = ({
+  onChange,
+  testId,
+  onBlur
+}: IFileUploadInput) => {
   return (
     <div data-testid={testId}>
       <input
@@ -10,6 +14,7 @@ export const FileUploadInput = ({ onChange, testId }: IFileUploadInput) => {
         multiple
         className="hidden"
         onChange={onChange}
+        onBlur={onBlur}
       />
       <div
         data-testid={`${testId}-container`}

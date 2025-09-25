@@ -8,9 +8,9 @@ export const FileUploadList = ({
 }: IFileUploadList) => {
   const hasFiles = files.length > 0
   return (
-    <div data-testid={testId} className="space-y-2">
+    <div data-testid={testId}>
       {hasFiles ? (
-        <div data-testid={`${testId}-files`}>
+        <div data-testid={`${testId}-files`} className="space-y-2">
           {files.map((file) => (
             <FileUploadListItem
               testId={`${testId}-item-${file.name}-${file.lastModified}-${file.size}`}

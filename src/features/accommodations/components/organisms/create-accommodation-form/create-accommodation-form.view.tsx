@@ -35,15 +35,6 @@ export const CreateAccommodationForm = () => {
 
   const fields = [
     {
-      name: 'title',
-      hidden: step === ECreateAccommodationFormSteps.SUMMARY,
-      template: (
-        <div className="mb-8 flex w-full items-center justify-center">
-          <LabelTitle>{accommodationFormStepTitle[step]}</LabelTitle>
-        </div>
-      )
-    },
-    {
       name: 'name',
       label: 'Name',
       type: 'text' as const,
@@ -85,8 +76,8 @@ export const CreateAccommodationForm = () => {
       hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
     },
     {
-      name: 'owner',
-      label: 'Owner',
+      name: 'ownerName',
+      label: 'Owner Name',
       type: 'text' as const,
       className: 'w-full mb-2',
       hidden: step !== ECreateAccommodationFormSteps.OWNER
@@ -140,11 +131,16 @@ export const CreateAccommodationForm = () => {
   ]
   return (
     <div className="flex h-full w-full flex-col gap-5 p-5">
+      {step !== ECreateAccommodationFormSteps.SUMMARY && (
+        <div className="flex w-full items-center justify-center">
+          <LabelTitle>{accommodationFormStepTitle[step]}</LabelTitle>
+        </div>
+      )}
       <TurboForm
-        className="flex h-full w-full flex-col gap-2"
         fields={fields}
         actions={actions}
-        fieldsClassName="flex-1"
+        className="flex h-full w-full flex-col gap-2"
+        fieldsClassName="flex-1 overflow-y-auto"
         actionsClassName="flex gap-2 justify-end items-center gap-2"
       />
     </div>

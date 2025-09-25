@@ -49,39 +49,33 @@ type TypeTurboFormValue = string | number | boolean | File[]
 
 export type TypeTurboFormValues = Record<string, TypeTurboFormValue>
 
-interface ITurboFormError {
-  required?: boolean
-  minLength?: boolean
-  maxLength?: boolean
-  numberIsNotAllowed?: boolean
-}
-
-export type TypeTurboFormErrors = Record<string, ITurboFormError>
-
-export interface TypeTurboFormSchemaValue {
-  message: string
-  value: boolean | number
-}
+export type TypeTurboFormErrors = Record<string, string[]>
 
 export type TypeTurboFormErrorKey =
   | 'required'
   | 'minLength'
   | 'maxLength'
   | 'numberIsNotAllowed'
+  | 'phone'
+  | 'email'
 
-export interface ITurboFormProps {
-  schema?: Record<TypeTurboFormErrorKey, TypeTurboFormSchemaValue>
+export interface TypeTurboFormSchemaValue {
+  type: TypeTurboFormErrorKey
+  message: string
+  value?: boolean | number
 }
 
 export interface ITurboFormContext {
   values: TypeTurboFormValues
   errors: TypeTurboFormErrors
-  schema?: Record<TypeTurboFormErrorKey, TypeTurboFormSchemaValue>
+  schema?: Record<string, TypeTurboFormSchemaValue[]>
   setValues: (values: TypeTurboFormValues) => void
   setErrors: (errors: TypeTurboFormErrors) => void
+  validate: (key: string) => string[]
 }
 
 export interface ITurboFormProviderProps {
   children: ReactNode
   value?: ITurboFormContext
+  schema?: Record<string, TypeTurboFormSchemaValue[]>
 }

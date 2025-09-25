@@ -9,7 +9,7 @@ export const FileUploadListItem = ({
     <div
       key={`${file.name}-${file.lastModified}-${file.size}`}
       data-testid={testId}
-      className="flex items-center justify-between gap-3 rounded border p-3 hover:bg-gray-50"
+      className="flex items-center justify-between gap-3 rounded border border-gray-300 p-3 hover:bg-gray-50"
     >
       <div
         data-testid={`${testId}-content`}

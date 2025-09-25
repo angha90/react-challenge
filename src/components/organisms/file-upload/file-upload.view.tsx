@@ -2,7 +2,12 @@ import type { ChangeEvent } from 'react'
 import { FileUploadInput, FileUploadList } from './components'
 import type { IFileUpload } from './interfaces'
 
-export const FileUpload = ({ value = [], onChange, testId }: IFileUpload) => {
+export const FileUpload = ({
+  value = [],
+  onChange,
+  testId,
+  invalid
+}: IFileUpload) => {
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files
     if (!selectedFiles) return
@@ -25,7 +30,7 @@ export const FileUpload = ({ value = [], onChange, testId }: IFileUpload) => {
   return (
     <div
       data-testid={testId}
-      className="flex w-full flex-col gap-4 rounded-md border border-gray-300 p-4 shadow transition-colors duration-200 hover:border-orange-500 focus:border-orange-500 focus:shadow focus:outline-none"
+      className={`flex w-full flex-col gap-4 rounded-md border border-gray-300 p-4 shadow transition-colors duration-200 hover:border-orange-500 focus:border-orange-500 focus:shadow focus:outline-none ${invalid ? 'border-red-500' : 'border-gray-300'} `}
     >
       <FileUploadInput testId={`${testId}-input`} onChange={handleFileChange} />
       <FileUploadList

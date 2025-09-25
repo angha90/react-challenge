@@ -3,5 +3,7 @@ export interface IDropdownProps {
   placeholder?: string
   value?: string
   onChange?: (value: string) => void
+  onBlur?: () => void
   testId?: string
+  invalid?: boolean
 }
