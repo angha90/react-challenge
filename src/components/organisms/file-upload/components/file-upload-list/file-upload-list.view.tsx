@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { IFileUploadList } from '../../interfaces'
 import { FileUploadListItem } from '../file-upload-list-item'
 
@@ -6,6 +7,7 @@ export const FileUploadList = ({
   onRemove,
   testId
 }: IFileUploadList) => {
+  const { t } = useTranslation()
   const hasFiles = files.length > 0
   return (
     <div data-testid={testId}>
@@ -25,7 +27,7 @@ export const FileUploadList = ({
           data-testid={`${testId}-no-files`}
           className="text-center text-sm font-medium text-gray-500"
         >
-          No documents uploaded
+          {t('uploadFile.noFiles')}
         </p>
       )}
     </div>

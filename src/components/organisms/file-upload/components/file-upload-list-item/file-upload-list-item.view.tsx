@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { IFileUploadListItem } from '../../interfaces'
 
 export const FileUploadListItem = ({
@@ -5,6 +6,7 @@ export const FileUploadListItem = ({
   onRemove,
   testId
 }: IFileUploadListItem) => {
+  const { t } = useTranslation()
   return (
     <div
       key={`${file.name}-${file.lastModified}-${file.size}`}
@@ -53,7 +55,7 @@ export const FileUploadListItem = ({
           rel="noopener noreferrer"
           className="inline-flex items-center rounded bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100"
         >
-          View
+          {t('uploadFile.view')}
         </a>
         {onRemove && (
           <button
@@ -63,7 +65,7 @@ export const FileUploadListItem = ({
             aria-label={`Remove ${file.name}`}
             className="inline-flex items-center rounded bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100"
           >
-            Delete
+            {t('uploadFile.delete')}
           </button>
         )}
       </div>

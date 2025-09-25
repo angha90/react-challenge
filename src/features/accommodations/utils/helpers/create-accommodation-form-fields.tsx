@@ -3,66 +3,66 @@ import { ECreateAccommodationFormSteps } from '../enums'
 import type { ICreateAccommodationFormFieldsProps } from '../interfaces'
 
 export const createAccommodationFormFields = ({
-  step
+  step,
+  t
 }: ICreateAccommodationFormFieldsProps) => [
   {
     name: 'name',
-    label: 'Name',
+    label: t('accomodations.createForm.field.name'),
     type: 'text' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
   },
   {
     name: 'address',
-    label: 'Address',
+    label: t('accomodations.createForm.field.address'),
     type: 'text' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
   },
   {
     name: 'description',
-    label: 'Description',
+    label: t('accomodations.createForm.field.description'),
     type: 'textarea' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
   },
   {
     name: 'type',
-    label: 'Type',
+    label: t('accomodations.createForm.field.type'),
     type: 'dropdown' as const,
     options: [
       { value: 'apartment', label: 'Apartment' },
       { value: 'villa', label: 'Villa' },
       { value: 'house', label: 'House' }
     ],
-    placeholder: 'Select a type',
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
   },
   {
     name: 'photos',
-    label: 'Photos',
+    label: t('accomodations.createForm.field.photos'),
     type: 'file' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.ACCOMMODATION
   },
   {
     name: 'ownerName',
-    label: 'Owner Name',
+    label: t('accomodations.createForm.field.ownerName'),
     type: 'text' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.OWNER
   },
   {
     name: 'ownerEmail',
-    label: 'Owner Email',
+    label: t('accomodations.createForm.field.ownerEmail'),
     type: 'text' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.OWNER
   },
   {
     name: 'ownerPhone',
-    label: 'Owner Phone',
+    label: t('accomodations.createForm.field.ownerPhone'),
     type: 'text' as const,
     className: 'w-full mb-2',
     hidden: step !== ECreateAccommodationFormSteps.OWNER

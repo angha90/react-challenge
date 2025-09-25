@@ -1,4 +1,14 @@
 {
+  "uploadFile": {
+    "message": "Por favor, Use el botón abajo para subir sus archivos.",
+    "label": "Subir archivos",
+    "noFiles": "No hay archivos subidos",
+    "view": "Ver",
+    "delete": "Eliminar"
+  },
+  "dropdown": {
+    "placeholder": "Seleccione una opción"
+  },
   "accomodations": {
     "createForm": {
       "step": {
@@ -11,7 +21,10 @@
         "address": "Dirección",
         "description": "Descripción",
         "type": "Tipo",
-        "photos": "Fotos"
+        "photos": "Fotos",
+        "ownerName": "Nombre",
+        "ownerEmail": "Email",
+        "ownerPhone": "Teléfono"
       },
       "button": {
         "back": "Atrás",

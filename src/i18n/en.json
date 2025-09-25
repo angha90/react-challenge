@@ -1,4 +1,14 @@
 {
+  "uploadFile": {
+    "message": "Please, use the button below to upload your files.",
+    "label": "Upload files",
+    "noFiles": "No files uploaded",
+    "view": "View",
+    "delete": "Delete"
+  },
+  "dropdown": {
+    "placeholder": "Select an option"
+  },
   "accomodations": {
     "createForm": {
       "step": {
@@ -11,7 +21,10 @@
         "address": "Address",
         "description": "Description",
         "type": "Type",
-        "photos": "Photos"
+        "photos": "Photos",
+        "ownerName": "Name",
+        "ownerEmail": "Email",
+        "ownerPhone": "Phone"
       },
       "button": {
         "back": "Back",

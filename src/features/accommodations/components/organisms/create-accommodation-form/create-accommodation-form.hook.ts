@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useTurboFormContext } from '../../../../../components/organisms'
 import {
   createAccommodationFormActions,
@@ -7,6 +8,7 @@ import {
 } from '../../../utils'
 
 export const useCreateAccommodationForm = () => {
+  const { t } = useTranslation()
   const { values, isFormValid } = useTurboFormContext()
   const [step, setStep] = useState<ECreateAccommodationFormSteps>(
     ECreateAccommodationFormSteps.ACCOMMODATION
@@ -20,7 +22,10 @@ export const useCreateAccommodationForm = () => {
     console.log('submit values', values)
   }, [values])
 
-  const fields = useMemo(() => createAccommodationFormFields({ step }), [step])
+  const fields = useMemo(
+    () => createAccommodationFormFields({ step, t }),
+    [step, t]
+  )
 
   const currentStepFields = useMemo(
     () => fields.filter((field) => !field.hidden).map((field) => field.name),
@@ -34,9 +39,10 @@ export const useCreateAccommodationForm = () => {
         previousStep,
         nextStep,
         isNextButtonDisabled: !isFormValid(currentStepFields),
-        onSubmit
+        onSubmit,
+        t
       }),
-    [step, currentStepFields, previousStep, nextStep, isFormValid, onSubmit]
+    [step, currentStepFields, previousStep, nextStep, isFormValid, onSubmit, t]
   )
 
   return {

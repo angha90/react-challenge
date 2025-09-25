@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { IFileUploadInput } from '../../interfaces'
 
 export const FileUploadInput = ({
@@ -5,6 +6,7 @@ export const FileUploadInput = ({
   testId,
   onBlur
 }: IFileUploadInput) => {
+  const { t } = useTranslation()
   return (
     <div data-testid={testId}>
       <input
@@ -30,7 +32,7 @@ export const FileUploadInput = ({
           data-testid={`${testId}-text`}
           className="mt-1 text-xs font-medium text-gray-500"
         >
-          Please use the button below to upload your documents.
+          {t('uploadFile.message')}
         </div>
         <div data-testid={`${testId}-label-container`} className="mt-4">
           <label
@@ -38,7 +40,7 @@ export const FileUploadInput = ({
             data-testid={`${testId}-label`}
             className="inline-block cursor-pointer rounded bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
           >
-            Upload files
+            {t('uploadFile.label')}
           </label>
         </div>
       </div>

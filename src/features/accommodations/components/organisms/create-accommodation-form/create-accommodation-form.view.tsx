@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { LabelTitle } from '../../../../../components/atoms'
 import { TurboForm } from '../../../../../components/organisms'
 import {
@@ -7,13 +8,14 @@ import {
 import { useCreateAccommodationForm } from './create-accommodation-form.hook'
 
 export const CreateAccommodationForm = () => {
+  const { t } = useTranslation()
   const { step, fields, actions } = useCreateAccommodationForm()
 
   return (
     <div className="flex h-full w-full flex-col gap-5 p-5">
       {step !== ECreateAccommodationFormSteps.SUMMARY && (
         <div className="flex w-full items-center justify-center">
-          <LabelTitle>{accommodationFormStepTitle[step]}</LabelTitle>
+          <LabelTitle>{accommodationFormStepTitle(t)[step]}</LabelTitle>
         </div>
       )}
       <TurboForm

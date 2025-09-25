@@ -1,14 +1,17 @@
+import { useTranslation } from 'react-i18next'
 import type { IDropdownProps } from './interfaces'
 
 export const Dropdown = ({
   options = [],
-  placeholder = 'Select an option',
+  placeholder,
   value,
   onChange,
   onBlur,
   testId,
   invalid
 }: IDropdownProps) => {
+  const { t } = useTranslation()
+  const translatedPlaceholder = placeholder || t('dropdown.placeholder')
   const arrowIcon =
     'bg-[url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNkw4IDEwTDEyIDYiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K")] bg-[length:16px] bg-[right_0.75rem_center] bg-no-repeat'
   return (
@@ -20,7 +23,7 @@ export const Dropdown = ({
       onBlur={onBlur}
     >
       <option value="" disabled>
-        {placeholder}
+        {translatedPlaceholder}
       </option>
       {options.map((option) => (
         <option key={option.value} value={option.value}>
