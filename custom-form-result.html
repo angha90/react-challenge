@@ -7,21 +7,19 @@
     <link rel="icon" type="image/svg+xml" href="/public/faveicon.png" />
     <link rel="stylesheet" href="./dist/my-app.css" />
     <title>Avantio React Challenge</title>
-  </head>
-  <body>
-    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-
- <!-- NOTE:: Add your script here -->
     <script type="module" src="./dist/my-app.js"></script>
   </head>
+
+  <!-- NOTE:: Add your script here -->
+
   <body>
     <script>
       /* NOTE:: You can modify this script if you need to */
       const form = document.createElement('custom-react-form')
-      form.addEventListener('custom-react-submit', (data) => console.log("custom-react-submit event data", data))
+      form.addEventListener('custom-react-submit', (data) =>
+        console.log('custom-react-submit event data', data)
+      )
 
       document.body.appendChild(form)
     </script>
