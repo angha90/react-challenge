@@ -17,7 +17,7 @@ export const useCreateAccommodationForm = () => {
   const previousStep = useCallback(() => setStep(step - 1), [step])
 
   const onSubmit = useCallback(() => {
-    console.log('submit', values)
+    console.log('submit values', values)
   }, [values])
 
   const fields = useMemo(() => createAccommodationFormFields({ step }), [step])

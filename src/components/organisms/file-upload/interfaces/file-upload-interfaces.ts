@@ -8,13 +8,13 @@ export interface IFileUploadInput {
 
 export interface IFileUploadList {
   files: File[]
-  onRemove: (file: File) => void
+  onRemove?: (file: File) => void
   testId?: string
 }
 
 export interface IFileUploadListItem {
   file: File
-  onRemove: (file: File) => void
+  onRemove?: (file: File) => void
   testId?: string
 }
 

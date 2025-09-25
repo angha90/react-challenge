@@ -1,7 +1,6 @@
+import { CreateAccommodationFormSummary } from '../../components/molecules'
 import { ECreateAccommodationFormSteps } from '../enums'
 import type { ICreateAccommodationFormFieldsProps } from '../interfaces'
-
-const accommodationFormSummary = <div>Summary</div>
 
 export const createAccommodationFormFields = ({
   step
@@ -70,7 +69,7 @@ export const createAccommodationFormFields = ({
   },
   {
     name: 'summary',
-    template: accommodationFormSummary,
+    template: <CreateAccommodationFormSummary />,
     hidden: step !== ECreateAccommodationFormSteps.SUMMARY
   }
 ]
