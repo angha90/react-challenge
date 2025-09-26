@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { useTurboFormContext } from '@/components/organisms'
 import {
   createAccommodationFormActions,
-  createAccommodationFormFields,
-  ECreateAccommodationFormSteps
-} from '@/features/accommodations/utils'
+  createAccommodationFormFields
+} from '@/features/accommodations/utils/helpers'
+import { ECreateAccommodationFormSteps } from '@/features/accommodations/utils/enums'
 
 export const useCreateAccommodationForm = () => {
   const { t } = useTranslation()

@@ -6,8 +6,12 @@ export const CreateAccommodationForm = () => {
   const { fields, actions } = useCreateAccommodationForm()
 
   return (
-    <div className="flex h-full w-full flex-col gap-5 p-5">
+    <div
+      data-testid="create-accommodation-form-container-test-id"
+      className="flex h-full w-full flex-col gap-5 p-5"
+    >
       <TurboForm
+        testId="create-accommodation-form-test-id"
         fields={fields}
         actions={actions}
         className="flex h-full w-full flex-col gap-2"

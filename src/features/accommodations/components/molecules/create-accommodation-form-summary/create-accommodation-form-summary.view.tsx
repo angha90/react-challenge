@@ -7,7 +7,10 @@ export const CreateAccommodationFormSummary = () => {
     useCreateAccommodationFormSummary()
 
   return (
-    <div className="space-y-6">
+    <div
+      data-testid="create-accommodation-form-summary-test-id"
+      className="space-y-6"
+    >
       <CreateAccommodationFormSummarySection
         title={t('accomodations.createForm.step.accommodation')}
       >

@@ -2,6 +2,7 @@ import { LabelTitle } from '@/components/atoms'
 import { accommodationFormStepTitle } from '../constants'
 import { ECreateAccommodationFormSteps } from '../enums'
 import type { ICreateAccommodationFormFieldsProps } from '../interfaces'
+import { CreateAccommodationFormSummary } from '../../components/molecules'
 
 export const createAccommodationFormFields = ({
   step,
@@ -12,9 +13,12 @@ export const createAccommodationFormFields = ({
     template: (
       <div
         key={`create-accommodation-form-title-${step}`}
+        data-testid="create-accommodation-form-title-container"
         className="mb-5 flex w-full items-center justify-center"
       >
-        <LabelTitle>{accommodationFormStepTitle(t)[step]}</LabelTitle>
+        <LabelTitle testId="create-accommodation-form-title">
+          {accommodationFormStepTitle(t)[step]}
+        </LabelTitle>
       </div>
     ),
     hidden: step === ECreateAccommodationFormSteps.SUMMARY
@@ -91,19 +95,7 @@ export const createAccommodationFormFields = ({
   },
   {
     name: 'summary',
-    template: (
-      <div
-        key={`create-accommodation-form-summary-${step}`}
-        className="space-y-6"
-      >
-        <div className="text-center text-lg font-semibold text-gray-700">
-          {t('accomodations.createForm.step.summary')}
-        </div>
-        <div className="text-center text-sm text-gray-500">
-          {t('accomodations.createForm.summary.placeholder')}
-        </div>
-      </div>
-    ),
+    template: <CreateAccommodationFormSummary />,
     hidden: step !== ECreateAccommodationFormSteps.SUMMARY
   }
 ]

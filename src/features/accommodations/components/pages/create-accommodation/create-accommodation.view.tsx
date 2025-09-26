@@ -9,7 +9,10 @@ export const CreateAccommodation = () => {
       data-testid="create-accommodation-test-id"
       className="flex w-full flex-1 items-center justify-center p-10"
     >
-      <Card className="flex h-full w-full flex-col lg:max-w-3xl">
+      <Card
+        testId="create-accommodation-card-test-id"
+        className="flex h-full w-full flex-col lg:max-w-3xl"
+      >
         <TurboFormProvider schema={createAccommodationFormSchema}>
           <CreateAccommodationForm />
         </TurboFormProvider>
