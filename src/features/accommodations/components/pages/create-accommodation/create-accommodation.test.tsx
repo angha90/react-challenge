@@ -1,9 +1,10 @@
 import { CreateAccommodation } from './create-accommodation.view'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithI18n } from '@/utils'
 
 describe('CreateAccommodation', () => {
   it('should render correctly with correct styles', () => {
-    render(<CreateAccommodation />)
+    renderWithI18n(<CreateAccommodation />)
     const createAccommodation = screen.getByTestId(
       'create-accommodation-test-id'
     )
@@ -14,7 +15,7 @@ describe('CreateAccommodation', () => {
   })
 
   it('should render the create accommodation card with correct styles', () => {
-    render(<CreateAccommodation />)
+    renderWithI18n(<CreateAccommodation />)
     const createAccommodationCard = screen.getByTestId(
       'create-accommodation-card-test-id'
     )
@@ -25,7 +26,7 @@ describe('CreateAccommodation', () => {
   })
 
   it('should render the create accommodation form correctly', () => {
-    render(<CreateAccommodation />)
+    renderWithI18n(<CreateAccommodation />)
     const createAccommodationForm = screen.getByTestId(
       'create-accommodation-form-test-id'
     )

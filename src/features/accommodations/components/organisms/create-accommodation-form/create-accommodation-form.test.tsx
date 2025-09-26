@@ -1,5 +1,4 @@
 import { fireEvent, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { CreateAccommodationForm } from './create-accommodation-form.view'
 import { renderWithI18nAndTurboForm } from '@/utils'
 import { vi } from 'vitest'
@@ -65,41 +64,43 @@ describe('CreateAccommodationForm', () => {
     )
   })
 
-  it('should fill all fields and and submit correctly', async () => {
-    const user = userEvent.setup()
+  it('should fill all fields and and submit correctly', () => {
     renderWithI18nAndTurboForm(<CreateAccommodationForm />)
 
-    const form = await screen.findByTestId('create-accommodation-form-test-id')
+    const form = screen.getByTestId('create-accommodation-form-test-id')
     expect(form).toBeInTheDocument()
 
     const title = screen.getByTestId('create-accommodation-form-title')
     expect(title).toHaveTextContent('Accommodation')
+
     const name = screen.getByTestId(
       'create-accommodation-form-test-id-field-name-input'
     )
     fireEvent.focus(name)
-    await user.type(name, 'Manuel González')
+    fireEvent.change(name, { target: { value: 'Manuel González' } })
     fireEvent.blur(name)
 
     const address = screen.getByTestId(
       'create-accommodation-form-test-id-field-address-input'
     )
     fireEvent.focus(address)
-    await user.type(address, 'Calle de la Paz, 123')
+    fireEvent.change(address, { target: { value: 'Calle de la Paz, 123' } })
     fireEvent.blur(address)
 
     const description = screen.getByTestId(
       'create-accommodation-form-test-id-field-description-textarea'
     )
     fireEvent.focus(description)
-    await user.type(description, 'This is a description')
+    fireEvent.change(description, {
+      target: { value: 'This is a description' }
+    })
     fireEvent.blur(description)
 
     const type = screen.getByTestId(
       'create-accommodation-form-test-id-field-type-dropdown'
     )
     fireEvent.focus(type)
-    await user.selectOptions(type, 'house')
+    fireEvent.change(type, { target: { value: 'house' } })
     fireEvent.blur(type)
 
     const photos = screen.getByTestId(
@@ -107,48 +108,49 @@ describe('CreateAccommodationForm', () => {
     )
     const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
     fireEvent.focus(photos)
-    await user.upload(photos, file)
+    fireEvent.change(photos, { target: { files: [file] } })
     fireEvent.blur(photos)
 
-    const nextButton = await screen.findByTestId(
+    const nextButton = screen.getByTestId(
       'create-accommodation-form-test-id-action-1'
     )
-    await user.click(nextButton)
+    fireEvent.click(nextButton)
+
     const ownerName = screen.getByTestId(
       'create-accommodation-form-test-id-field-ownerName-input'
     )
     fireEvent.focus(ownerName)
-    await user.type(ownerName, 'Manuel González')
+    fireEvent.change(ownerName, { target: { value: 'Manuel González' } })
     fireEvent.blur(ownerName)
 
     const ownerEmail = screen.getByTestId(
       'create-accommodation-form-test-id-field-ownerEmail-input'
     )
     fireEvent.focus(ownerEmail)
-    await user.type(ownerEmail, 'manuel@gmail.com')
+    fireEvent.change(ownerEmail, { target: { value: 'manuel@gmail.com' } })
     fireEvent.blur(ownerEmail)
 
     const ownerPhone = screen.getByTestId(
       'create-accommodation-form-test-id-field-ownerPhone-input'
     )
     fireEvent.focus(ownerPhone)
-    await user.type(ownerPhone, '1234567890')
+    fireEvent.change(ownerPhone, { target: { value: '1234567890' } })
     fireEvent.blur(ownerPhone)
 
-    const nextButton2 = await screen.findByTestId(
+    const nextButton2 = screen.getByTestId(
       'create-accommodation-form-test-id-action-1'
     )
-    await user.click(nextButton2)
+    fireEvent.click(nextButton2)
 
-    const summary = await screen.findByTestId(
+    const summary = screen.getByTestId(
       'create-accommodation-form-summary-test-id'
     )
     expect(summary).toBeInTheDocument()
 
-    const submitButton = await screen.findByTestId(
+    const submitButton = screen.getByTestId(
       'create-accommodation-form-test-id-action-2'
     )
-    await user.click(submitButton)
+    fireEvent.click(submitButton)
 
     expect(mockAlert).toHaveBeenCalledWith(
       'The accommodation has been created successfully.'

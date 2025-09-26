@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { CreateAccommodationFormSummaryField } from './create-accommodation-form-summary-field.view'
 import { vi } from 'vitest'
+import { renderWithI18n } from '@/utils'
 
 Object.defineProperty(URL, 'createObjectURL', {
   value: vi.fn(() => 'mock-object-url'),
@@ -9,7 +10,7 @@ Object.defineProperty(URL, 'createObjectURL', {
 
 describe('CreateAccommodationFormSummaryField', () => {
   it('should render correctly with string value', () => {
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Test Label"
         value="Test Value"
@@ -38,7 +39,7 @@ describe('CreateAccommodationFormSummaryField', () => {
   })
 
   it('should render correctly with special value', () => {
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Special Label"
         value="Original Value"
@@ -58,7 +59,7 @@ describe('CreateAccommodationFormSummaryField', () => {
       new File(['test2'], 'test2.png', { type: 'image/png' })
     ]
 
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Photos"
         value={mockFiles}
@@ -85,7 +86,7 @@ describe('CreateAccommodationFormSummaryField', () => {
   })
 
   it('should render different labels correctly', () => {
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Different Label"
         value="Different Value"
@@ -99,7 +100,7 @@ describe('CreateAccommodationFormSummaryField', () => {
   })
 
   it('should render different values correctly', () => {
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Test Label"
         value="Different Value"
@@ -113,7 +114,7 @@ describe('CreateAccommodationFormSummaryField', () => {
   })
 
   it('should prioritize specialValue over value', () => {
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Test Label"
         value="Original Value"
@@ -129,7 +130,9 @@ describe('CreateAccommodationFormSummaryField', () => {
   })
 
   it('should render empty string value correctly', () => {
-    render(<CreateAccommodationFormSummaryField label="Empty Label" value="" />)
+    renderWithI18n(
+      <CreateAccommodationFormSummaryField label="Empty Label" value="" />
+    )
 
     const value = screen.getByTestId(
       'create-accommodation-form-summary-value-test-id'
@@ -138,7 +141,7 @@ describe('CreateAccommodationFormSummaryField', () => {
   })
 
   it('should render with empty file list', () => {
-    render(
+    renderWithI18n(
       <CreateAccommodationFormSummaryField
         label="Empty Files"
         value={[]}
