@@ -5,7 +5,10 @@ import { CreateAccommodationForm } from '../../organisms'
 
 export const CreateAccommodation = () => {
   return (
-    <div className="flex w-full flex-1 items-center justify-center p-10">
+    <div
+      data-testid="create-accommodation-test-id"
+      className="flex w-full flex-1 items-center justify-center p-10"
+    >
       <Card className="flex h-full w-full flex-col lg:max-w-3xl">
         <TurboFormProvider schema={createAccommodationFormSchema}>
           <CreateAccommodationForm />

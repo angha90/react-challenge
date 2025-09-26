@@ -8,21 +8,7 @@ Object.defineProperty(URL, 'createObjectURL', {
 })
 
 describe('FileUploadListItem', () => {
-  it('should render correctly', () => {
-    renderWithI18n(
-      <FileUploadListItem
-        testId="file-upload-list-item-test-id"
-        file={new File([], 'test.txt')}
-        onRemove={() => {}}
-      />
-    )
-    const fileUploadListItem = screen.getByTestId(
-      'file-upload-list-item-test-id'
-    )
-    expect(fileUploadListItem).toBeInTheDocument()
-  })
-
-  it('should render with correct styles', () => {
+  it('should render correctly with correct styles', () => {
     renderWithI18n(
       <FileUploadListItem
         testId="file-upload-list-item-test-id"
@@ -36,6 +22,22 @@ describe('FileUploadListItem', () => {
     expect(fileUploadListItem).toBeInTheDocument()
     expect(fileUploadListItem).toHaveClass(
       'flex items-center justify-between gap-3 rounded border border-gray-300 p-3'
+    )
+  })
+
+  it('should render with correct content styles', () => {
+    renderWithI18n(
+      <FileUploadListItem
+        testId="file-upload-list-item-test-id"
+        file={new File([], 'test.txt')}
+        onRemove={() => {}}
+      />
+    )
+    const fileUploadListItem = screen.getByTestId(
+      'file-upload-list-item-test-id-content'
+    )
+    expect(fileUploadListItem).toHaveClass(
+      'flex min-w-0 items-center gap-3 text-left'
     )
   })
 
@@ -123,5 +125,19 @@ describe('FileUploadListItem', () => {
     )
     expect(fileUploadListItem).toHaveTextContent('View')
     expect(fileUploadListItem).toHaveTextContent('Delete')
+  })
+
+  it('should not render with delete button when onRemove is not provided', () => {
+    renderWithI18n(
+      <FileUploadListItem
+        testId="file-upload-list-item-test-id"
+        file={new File([], 'test.txt')}
+      />
+    )
+
+    const fileUploadListItemDelete = screen.queryByTestId(
+      'file-upload-list-item-test-id-delete'
+    )
+    expect(fileUploadListItemDelete).not.toBeInTheDocument()
   })
 })

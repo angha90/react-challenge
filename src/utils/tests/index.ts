@@ -1,3 +1,3 @@
-import { renderWithI18n } from './tests-helpers'
+import { renderWithI18n, renderWithI18nAndTurboForm } from './tests-helpers'
 
-export { renderWithI18n }
+export { renderWithI18n, renderWithI18nAndTurboForm }

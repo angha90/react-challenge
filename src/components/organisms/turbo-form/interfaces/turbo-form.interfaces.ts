@@ -38,6 +38,7 @@ export interface ITurboFormActions {
 }
 
 export interface ITurboFormProps {
+  testId?: string
   fields: ITurboFormField[]
   actions: ITurboFormActions[]
   className?: string

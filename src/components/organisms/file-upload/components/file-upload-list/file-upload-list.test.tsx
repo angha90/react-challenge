@@ -21,18 +21,6 @@ describe('FileUploadList', () => {
     expect(fileUploadList).toBeInTheDocument()
   })
 
-  it('should render with correct styles', () => {
-    renderWithI18n(
-      <FileUploadList
-        testId="file-upload-list-test-id"
-        files={[]}
-        onRemove={() => {}}
-      />
-    )
-    const fileUploadList = screen.getByTestId('file-upload-list-test-id')
-    expect(fileUploadList).toBeInTheDocument()
-  })
-
   it('should render no files message correctly', () => {
     renderWithI18n(
       <FileUploadList
@@ -56,7 +44,7 @@ describe('FileUploadList', () => {
     expect(fileUploadFiles).not.toBeInTheDocument()
   })
 
-  it('should render files correctly', () => {
+  it('should render files correctly with correct styles', () => {
     const file1 = new File(['test content 1'], 'test1.txt', {
       type: 'text/plain'
     })
@@ -74,6 +62,7 @@ describe('FileUploadList', () => {
 
     const fileUploadFiles = screen.getByTestId('file-upload-list-test-id-files')
     expect(fileUploadFiles).toBeInTheDocument()
+    expect(fileUploadFiles).toHaveClass('space-y-2')
 
     const fileUploadNoFiles = screen.queryByTestId(
       'file-upload-list-test-id-no-files'

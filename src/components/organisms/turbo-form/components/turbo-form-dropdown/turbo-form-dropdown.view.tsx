@@ -31,7 +31,7 @@ export const TurboFormDropdown = ({
           <LabelInput
             key={error + index}
             className="text-xs text-red-500 italic"
-            testId={`${testId}-error`}
+            testId={`${testId}-error-${index}`}
           >
             {t(error)}
           </LabelInput>

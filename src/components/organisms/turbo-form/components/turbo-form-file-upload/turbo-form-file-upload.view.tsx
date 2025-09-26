@@ -19,9 +19,10 @@ export const TurboFormFileUpload = ({
   }
 
   return (
-    <div className={`flex flex-col gap-2 ${className}`} tabIndex={-1}>
-      {label && <LabelInput>{label}</LabelInput>}
+    <div data-testid={testId} className={`flex flex-col gap-2 ${className}`}>
+      {label && <LabelInput testId={`${testId}-label`}>{label}</LabelInput>}
       <FileUpload
+        testId={`${testId}-file-upload`}
         value={(values[name] as File[]) || []}
         onChange={onChange}
         invalid={!!errors?.[name]?.length}
@@ -29,9 +30,9 @@ export const TurboFormFileUpload = ({
       {errors[name] &&
         errors[name].map((error, index) => (
           <LabelInput
+            testId={`${testId}-error-${index}`}
             key={error + index}
             className="text-xs text-red-500 italic"
-            testId={`${testId}-error`}
           >
             {t(error)}
           </LabelInput>

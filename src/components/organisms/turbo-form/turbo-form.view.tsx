@@ -8,6 +8,7 @@ import {
 import type { ITurboFormProps } from './interfaces'
 
 export const TurboForm = ({
+  testId,
   fields,
   actions,
   className,
@@ -15,16 +16,18 @@ export const TurboForm = ({
   actionsClassName
 }: ITurboFormProps) => {
   return (
-    <div className={className}>
-      <div className={fieldsClassName}>
+    <div data-testid={testId} className={className}>
+      <div data-testid={`${testId}-fields`} className={fieldsClassName}>
         {fields.map((field) => {
           if (field.hidden) return null
-          if (field.template) return field.template
+          if (field.template)
+            return <div key={field.name}>{field.template}</div>
 
           switch (field.type) {
             case 'text':
               return (
                 <TurboFormInputText
+                  testId={`${testId}-field-${field.name}`}
                   name={field.name}
                   key={field.label}
                   label={field.label}
@@ -34,6 +37,7 @@ export const TurboForm = ({
             case 'textarea':
               return (
                 <TurboFormTextArea
+                  testId={`${testId}-field-${field.name}`}
                   name={field.name}
                   key={field.label}
                   label={field.label}
@@ -44,6 +48,7 @@ export const TurboForm = ({
             case 'dropdown':
               return (
                 <TurboFormDropdown
+                  testId={`${testId}-field-${field.name}`}
                   name={field.name}
                   key={field.label}
                   label={field.label}
@@ -55,6 +60,7 @@ export const TurboForm = ({
             case 'file':
               return (
                 <TurboFormFileUpload
+                  testId={`${testId}-field-${field.name}`}
                   name={field.name}
                   key={field.label}
                   label={field.label}
@@ -66,10 +72,11 @@ export const TurboForm = ({
           }
         })}
       </div>
-      <div className={actionsClassName}>
-        {actions.map((action) =>
+      <div data-testid={`${testId}-actions`} className={actionsClassName}>
+        {actions.map((action, index) =>
           action.hidden ? null : (
             <Button
+              testId={`${testId}-action-${index}`}
               key={action.label}
               onClick={action.onClick}
               className={action.className}
